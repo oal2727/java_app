@@ -1,1 +1,5 @@
-model\Person.class
+com\mycompany\proyecto1\AuthController.class
+DatabaseConfig\Conexion.class
+model\Usuario.class
+Services\ServiceUser.class
+com\mycompany\proyecto1\UserController.class

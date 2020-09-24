@@ -5,13 +5,12 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="model.* " %>
 <!DOCTYPE html>
 <html>
     <jsp:include page="navbar.jsp"></jsp:include>
     <body>
         <h1 class="text-primary text-center">
-           App java with Heroku
+            System login and product with java jsp and mvc
         </h1>
     </body>
 </html>
