@@ -1,5 +1,5 @@
 
-src/main/java/DatabaseConfig
+.src/main/java/DatabaseConfig/Conexion.java
 *.class
 
 # Mobile Tools for Java (J2ME)
