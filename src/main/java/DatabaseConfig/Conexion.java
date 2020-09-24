@@ -21,11 +21,11 @@ public class Conexion {
         String type="postgresql";
         //?useSSL=false => mysql
          try {  
-        String host="localhost";
-        String user="postgres";
-        String password="postgres";
+        String host="ec2-52-1-95-247.compute-1.amazonaws.com";
+        String user="sfsrfvsuipuwdt";
+        String password="490b15f6e2f1cc96a5cc6651deced2db54fb23c5b5475ac2ba987f5e884f2054";
         String port="5432";
-        String database="php2";
+        String database="d5a7pkoohr0nvd";
         String url = "jdbc:"+type+"://"+host+":"+port+"/"+database;
             //siempre definir bien el url y añadir el class for name ...
              Class.forName("org.postgresql.Driver");
@@ -34,9 +34,7 @@ public class Conexion {
                  System.out.println("conexion establecida");
                  return conexion;
              }
-         } catch (SQLException ex) {
-             Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
-         } catch (ClassNotFoundException ex) {
+         } catch (SQLException  | ClassNotFoundException ex) {
              Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
          }
          return null;
