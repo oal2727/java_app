@@ -22,7 +22,7 @@ import model.Usuario;
  *
  * @author josel
  */
-@WebServlet("/registeruser")
+@WebServlet(name="registeruser",urlPatterns={"/registeruser"})
 public class UserController extends HttpServlet {
     ServiceUser service = new ServiceUser();
     

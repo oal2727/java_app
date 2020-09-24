@@ -21,7 +21,7 @@ import model.Usuario;
  *
  * @author josel
  */
-@WebServlet("/loginuser")
+@WebServlet(name="loginuser",urlPatterns={"/loginuser"})
 public class AuthController extends HttpServlet{
     ServiceUser service = new ServiceUser();
     Usuario user;
