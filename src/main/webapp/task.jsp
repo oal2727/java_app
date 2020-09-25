@@ -13,6 +13,6 @@
     </head>
     <body>
        <jsp:include page="navbar.jsp"></jsp:include>
-       <h1 class="text-center">Task here!</h1>
+       <h1 class="text-center">Task here .!</h1>
     </body>
 </html>

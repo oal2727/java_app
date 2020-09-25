@@ -50,9 +50,7 @@ tags : https://www.tutorialspoint.com/jsp/jstl_core_if_tag.htm
           <% out.println(session.getAttribute("usuario")); %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <!--  <a class="dropdown-item" href="">Profile</a>
-          <div class="dropdown-divider"></div> -->
-            <form action="loginuser" method="GET">
+            <form action="loginuser" method="get">
               <button class="dropdown-item" type="submit">Logout</button>
           </form> 
         </div>
