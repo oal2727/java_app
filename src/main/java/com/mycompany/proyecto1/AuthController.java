@@ -46,5 +46,11 @@ public class AuthController extends HttpServlet{
                     }
                 }
     }
+      public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException{
+           HttpSession session = req.getSession();
+           System.out.println("logout data");
+           session.removeAttribute("usuario");
+             res.sendRedirect("login.jsp");
+         }
      
 }

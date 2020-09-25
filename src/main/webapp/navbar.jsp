@@ -52,20 +52,13 @@ tags : https://www.tutorialspoint.com/jsp/jstl_core_if_tag.htm
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
          <!--  <a class="dropdown-item" href="">Profile</a>
           <div class="dropdown-divider"></div> -->
-            <form action="navbar.jsp" method="POST">
+            <form action="loginuser" method="GET">
               <button class="dropdown-item" type="submit">Logout</button>
           </form> 
         </div>
       </li>
       
       <% } %>
-          <% 
-                if(request.getMethod() == "POST"){
-                    session.removeAttribute("usuario");
-                    response.sendRedirect("login.jsp");
-                }
-          %>
-     
     </ul>
   </div>
 </nav>
