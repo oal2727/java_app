@@ -26,7 +26,7 @@ public class Conexion {
         String password="490b15f6e2f1cc96a5cc6651deced2db54fb23c5b5475ac2ba987f5e884f2054";
         String port="5432";
         String database="d5a7pkoohr0nvd";
-        String url = "jdbc:"+type+"://"+host+":"+port+"/"+database;
+        String url = "jdbc:"+type+"://"+host+":"+port+"/"+database+"?sslmode=require";
             //siempre definir bien el url y añadir el class for name ...
              Class.forName("org.postgresql.Driver");
              conexion = DriverManager.getConnection(url,user,password);
