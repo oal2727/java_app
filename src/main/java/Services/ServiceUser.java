@@ -52,7 +52,7 @@ public class ServiceUser extends Conexion{
                     query2.setString(3,user.usuario);
                     query2.setString(4,user.password);
                     int x = query2.executeUpdate();
-                    return (0 < x ) ? 1 : 0;
+                   return x;
                }
            }catch(SQLException e){
                 System.out.println("Problema registrar" + e);
@@ -81,7 +81,7 @@ public class ServiceUser extends Conexion{
             ResultSet res = query.executeQuery();
             if(res.next()){
                  user = new Usuario(res.getString("nombre"),res.getString("apellido"),
-                         res.getString("user"),res.getString("password"));
+                         res.getString("usuario"),res.getString("password"));
                  return user;
             }else{
                 return null;
