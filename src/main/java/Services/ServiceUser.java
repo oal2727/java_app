@@ -41,7 +41,7 @@ public class ServiceUser extends Conexion{
                query1.setString(1,user.usuario);
                ResultSet output = query1.executeQuery();
                if(output.next()){
-                   System.out.println("usuario ya existente");
+                   System.out.println("usuario ya existente ...");
                    return -1;
                }else{
                    System.out.println("prosigue");

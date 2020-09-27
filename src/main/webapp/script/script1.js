@@ -5,5 +5,12 @@
  */
 
 $( document ).ready(function() {
-    console.log("initialzie javascript");
+    console.log("initialzie js");
+    //falta de recarga caliente
+    $( "#login_form" ).submit(function( event ) {
+       alert( "Handler for .submit() called." );
+       event.preventDefault();
+     });
+
+    
 });

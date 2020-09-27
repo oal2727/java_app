@@ -25,31 +25,35 @@ import model.Usuario;
 public class AuthController extends HttpServlet{
     ServiceUser service = new ServiceUser();
     Usuario user;
+    
+//      req.setAttribute("errorMessage", "Contraseña incorrecto");
+//                       RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+//                       rd.forward(req, res);
      public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException{
-             HttpSession session = req.getSession();
+              res.setContentType("text/plain");
+         PrintWriter writer = res.getWriter();   
+         HttpSession session = req.getSession();
             String usuario = req.getParameter("user");
             String password = req.getParameter("password");
                 user = service.checkUser(usuario);
                 if(user == null){
-                    req.setAttribute("errorMessage", "Usuario incorrecto" );
-                    RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-                    rd.forward(req, res);  
+                    res.setStatus(400);
+                     writer.write("Usuario no existente");
                 }else{
                     boolean pass = service.desencriptionPassword(password, user.password);
                     if(pass){
                       session.setAttribute("usuario",user.usuario);
-                      res.sendRedirect("welcome.jsp");
+                          res.setStatus(200);
                     }else{
-                         req.setAttribute("errorMessage", "Contraseña incorrecto");
-                       RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-                       rd.forward(req, res);
+                         res.setStatus(400);
+                       writer.write("Contraseña Incorrecta");
                     }
                 }
     }
       public void doGet(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException{
            HttpSession session = req.getSession();
            session.removeAttribute("usuario");
-             res.sendRedirect("login.jsp");
+             res.setStatus(200);
          }
      
 }

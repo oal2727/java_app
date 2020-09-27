@@ -30,19 +30,20 @@ public class UserController extends HttpServlet {
     
      public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException{
             //String aid = req.getParameter("aid");
+            res.setContentType("text/plain");
+           PrintWriter writer = res.getWriter();   
             String nombre = req.getParameter("nombre");
             String apellido = req.getParameter("apellido");
             String usuario = req.getParameter("user");
             String password1 = req.getParameter("password1");
              String password2 = req.getParameter("password2");
-          
+             System.out.println(usuario);
              System.out.println("post data");
            if(nombre.equals("") || apellido.equals("") || usuario.equals("") ||
                    password1.equals("") || password2.equals("")){
 //                      System.out.println("completar campos");
-                  req.setAttribute("errorMessage", "completar campos" );
-                  RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
-                   rd.forward(req, res); 
+                    res.setStatus(400);
+                    writer.write("Datos incompletos");
            }else{
                  if(password1.equals(password2)){
                   String password = service.EncryptionPassword(password1);
@@ -50,17 +51,15 @@ public class UserController extends HttpServlet {
                   Usuario user = new Usuario(nombre,apellido,usuario,password);
                   int check = service.RegisterUser(user);
                   if(check < 0){
-                         req.setAttribute("errorMessage", "el usuario ya existe" );
-                     RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
-                      rd.forward(req, res);  
+                       res.setStatus(400);
+                       writer.write("Usuario ya existe");
                   }
                   else if(0 < check){
-                            res.sendRedirect("login.jsp");
+                      res.setStatus(200);
                   }
                 }else{
-                     req.setAttribute("errorMessage", "las contraseñas no coinciden" );
-                     RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
-                      rd.forward(req, res);  
+                     res.setStatus(400);
+                     writer.write("Contraseña no conciden");
 
                 }
            }
