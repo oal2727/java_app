@@ -13,36 +13,28 @@
     </head>
     <body>
            <jsp:include page="navbar.jsp"></jsp:include>
-         <%
-            if(null!=request.getAttribute("errorMessage"))
-            {
-               %>
-               <div class="alert alert-danger" role="alert">
-               <% out.println(request.getAttribute("errorMessage")); %>
-            </div>
-         <%   }
-        %>
+           <div id="error_register"></div>
            <div class="col-md-5 m-auto">
                 <div class="card">
                <div class="card-header">
                     register
                </div>
                <div class="card-body">
-                  <form action="registeruser" method="post">
+                  <form id="register_form">
                          <div class="form-group">
-                             <input type="text" name="nombre" class="form-control" placeholder="Nombre here" required/>
+                             <input type="text" id="nombre" class="form-control" placeholder="Nombre here" required/>
                          </div>
                          <div class="form-group">
-                             <input type="text" name="apellido"  class="form-control" placeholder="Apellido here" required/>
+                             <input type="text" id="apellido"  class="form-control" placeholder="Apellido here" required/>
                          </div>
                        <div class="form-group">
-                             <input type="text" name="user" class="form-control" placeholder="User here" required/>
+                             <input type="text" id="usuario" class="form-control" placeholder="User here" required/>
                          </div>
                         <div class="form-group">
-                             <input type="password" name="password1" class="form-control" placeholder="Password here" required/>
+                             <input type="password" id="password1" class="form-control" placeholder="Password here" required/>
                          </div>
                        <div class="form-group">
-                             <input type="password" name="password2" class="form-control" placeholder="Repeat Password here" required/>
+                             <input type="password" id="password2" class="form-control" placeholder="Repeat Password here" required/>
                          </div>
                          <button class="btn btn-primary" type="submit">Register</button>
                      </form>

@@ -10,7 +10,7 @@
     <jsp:include page="navbar.jsp"></jsp:include>
     <body>
         <h1 class="text-primary text-center">
-            System login with java jsp
+            System login with java
         </h1>
     </body>
 </html>
